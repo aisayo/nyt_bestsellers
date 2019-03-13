@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class NewYorkTimesBestsellers::Scraper
   
   def get_page
