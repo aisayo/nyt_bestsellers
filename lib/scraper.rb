@@ -22,6 +22,17 @@ class NewYorkTimesBestsellers::Scraper
     @@all
   end 
   
+  def scrape 
+    scrape_details
+    @fiction
+    @nonfiction
+    @childrens
+  end 
+  
+  def scrape_details
+    date = @doc.search("<div class="date-range tooltip" data-tooltip="Lists are published early online">March 24, 2019    </div>")
+  end 
+  
   def page
     Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/"))
     puts page.class   # => Nokogiri::HTML::Document
