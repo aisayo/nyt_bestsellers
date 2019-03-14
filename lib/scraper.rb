@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-class NewYorkTimesBestsellers::Scraper
+class Scraper
   
   def page
     Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/"))
