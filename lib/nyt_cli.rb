@@ -21,7 +21,7 @@ class NewYorkTimesBestsellers::CLI
       start 
     elseif input == "n"
       puts ""
-      puts "Thanks for stopping by!"
+      puts "Happy reading!"
       exit 
     else 
       puts ""

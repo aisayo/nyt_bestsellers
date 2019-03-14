@@ -3,12 +3,13 @@ require 'open-uri'
 
 class NewYorkTimesBestsellers::Scraper
   
-  def get_page
+  def page
     Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/"))
+    puts page.class   # => Nokogiri::HTML::Document
   end 
   
   def scrape_bestsellers_index
-    self.get_page.css()
+    self.page.css()
   end 
   
   def add_bestsellers
