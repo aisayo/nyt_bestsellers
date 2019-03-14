@@ -21,6 +21,14 @@ class Bestsellers
   #   self.all[id-1]
   # end 
   
+  def doc 
+    @doc ||= Nokogiri::HTML(open(self.url))
+  end 
+  
+  def url
+    @url ||= doc.css("")
+  end 
+  
   def fiction
     @fiction ||= doc.css("")
   end 
