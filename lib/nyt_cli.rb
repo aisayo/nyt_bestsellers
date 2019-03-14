@@ -2,7 +2,7 @@ class NewYorkTimesBestsellers::CLI
   
   def call 
     NewYorkTimesBestsellers::Scraper.new.make_bestsellers 
-    puts "New York Times bestsellers top 5"
+    puts "New York Times bestsellers top 5 this week"
     start 
   end 
   
