@@ -30,7 +30,8 @@ class NewYorkTimesBestsellers::Scraper
   end 
   
   def scrape_details
-    date = @doc.search("<div class="date-range tooltip" data-tooltip="Lists are published early online">March 24, 2019    </div>")
+    date = @doc.search("<div class="date-range tooltip" data-tooltip="Lists are published early online"> == $0   </div>")
+    # <div class="date-range tooltip" data-tooltip="Lists are published early online">March 24, 2019    </div>
   end 
   
   def page
