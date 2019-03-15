@@ -27,6 +27,7 @@ class NewYorkTimesBestsellers::Scraper
     @fiction
     @nonfiction
     @childrens
+    @week 
   end 
   
   def scrape_details
