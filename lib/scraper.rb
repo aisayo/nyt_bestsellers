@@ -3,25 +3,6 @@ require 'open-uri'
 
 class NewYorkTimesBestsellers::Scraper
   
-    attr_accessor :title, :author, :genre, :description, :url
-  
-  @@all = []
-  
-  def initialize(title=nil, author=nil, url=nil)
-    @name = name 
-    @title = title 
-    @author = author 
-    @genre = genre 
-    @description = description
-    @url = url 
-    @doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/"))
-    @@all << self 
-  end 
-  
-  def self.all 
-    @@all
-  end 
-  
   def scrape 
     scrape_details
     @fiction

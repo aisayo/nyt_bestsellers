@@ -10,36 +10,21 @@ class Bestsellers
     @genre = genre 
     @description = description
     @url = url 
-    @@all << self 
+    
   end 
   
   def self.all 
     @@all
   end 
   
+  def save
+    @@all << self 
+  end 
+  
   # def self.find(id)
   #   self.all[id-1]
   # end 
-  
-  def doc 
-    @doc ||= Nokogiri::HTML(open(self.url))
-  end 
-  
-  def url
-    @url ||= doc.css("")
-  end 
-  
-  def fiction
-    @fiction ||= doc.css("")
-  end 
-  
-  def nonfiction
-    @nonfiction ||= doc.css("")
-  end 
-  
-  def childrens
-    @childrens ||= doc.css("")
-  end 
+
   
 end 
 
