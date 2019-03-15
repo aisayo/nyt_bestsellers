@@ -14,7 +14,7 @@ class NewYorkTimesBestsellers::Scraper
     @genre = genre 
     @description = description
     @url = url 
-    @doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/#{week}"))
+    @doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/"))
     @@all << self 
   end 
   
