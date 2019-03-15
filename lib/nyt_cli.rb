@@ -6,8 +6,7 @@
 class NewYorkTimesBestsellers::CLI 
   
   def call 
-    NewYorkTimesBestsellers::Scraper.new.make_bestsellers 
-    puts "New York Times bestsellers top 5 this week"
+    puts "Looking for a good book?"
     start 
   end 
   
