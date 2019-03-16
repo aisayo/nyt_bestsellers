@@ -38,11 +38,11 @@ class NewYorkTimesBestsellers::Bestsellers
   def self.scrape_fiction
     html = open("https://mabel.lib.mn.us/nyt-best-sellers-list/")
     doc = Nokogiri::HTML(html)
-
     title = doc.css("").text.gsub(/\t/, "")
     category = doc.css("").text
     
     fiction = self.new(title, author, category)
+    binding.pry
   end 
   
   def self.scrape_nonfiction
