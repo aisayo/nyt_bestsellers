@@ -1,3 +1,5 @@
+require 'pry'
+
 class NewYorkTimesBestsellers::Bestsellers 
   
   attr_accessor :title, :author, :category, :description, :url
