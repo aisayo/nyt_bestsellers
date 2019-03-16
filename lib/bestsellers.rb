@@ -39,6 +39,8 @@ class NewYorkTimesBestsellers::Bestsellers
     html = open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-fiction/")
     doc = Nokogiri::HTML(html)
     title = doc.css("div.page-heading").text.gsub(/\t/, "")
+    author = doc.css("")
+    description = doc.css("")
     category = doc.css("view details-view).text
     
     fiction = self.new(title, author, category)
