@@ -39,7 +39,7 @@ class NewYorkTimesBestsellers::Bestsellers
     html = open("https://owwl.org/bestsellers/list/Combined+Print+and+E-Book+Fiction")
     doc = Nokogiri::HTML(html)
     title = doc.css("div.row l-title").text.gsub(/\t/, "")
-    category = doc.css("").text
+    category = doc.css("bestsellers_lists > li:nth-child(6) > a").text
     
     fiction = self.new(title, author, category)
   end 
@@ -51,4 +51,6 @@ class NewYorkTimesBestsellers::Bestsellers
   end 
   
 end 
+
+
 
