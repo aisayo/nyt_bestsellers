@@ -1,13 +1,13 @@
 class Bestsellers 
   
-  attr_accessor :title, :author, :genre, :description, :url
+  attr_accessor :title, :author, :category, :description, :url
   
   @@all = []
   
   def initialize(title=nil, author=nil, url=nil)
     @title = title 
     @author = author 
-    @genre = genre 
+    @@category = category 
     @description = description
     @url = url 
     
