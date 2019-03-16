@@ -36,10 +36,10 @@ class NewYorkTimesBestsellers::Bestsellers
   end 
   
   def self.scrape_fiction
-    html = open("https://owwl.org/bestsellers/list/Combined+Print+and+E-Book+Fiction")
+    html = open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-fiction/")
     doc = Nokogiri::HTML(html)
-    title = doc.css("div.row l-title").text.gsub(/\t/, "")
-    category = doc.css("bestsellers_lists > li:nth-child(6) > a").text
+    title = doc.css("div.page-heading").text.gsub(/\t/, "")
+    category = doc.css("view details-view).text
     
     fiction = self.new(title, author, category)
   end 
