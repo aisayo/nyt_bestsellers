@@ -42,7 +42,6 @@ class NewYorkTimesBestsellers::Bestsellers
     category = doc.css("").text
     
     fiction = self.new(title, author, category)
-    binding.pry
   end 
   
   def self.scrape_nonfiction
