@@ -33,5 +33,14 @@ class Bestsellers
     bestsellers << self.scrape_childrens
   end 
   
+  def self.scrape_fiction
+  end 
+  
+  def self.scrape_nonfiction
+  end 
+  
+  def self.scrape_childrens
+  end 
+  
 end 
 
