@@ -27,6 +27,10 @@ class Bestsellers
   
   def self.scrape_info
     bestsellers = []
+    
+    bestsellers << self.scrape_fiction
+    bestsellers << self.scrape_nonfiction
+    bestsellers << self.scrape_childrens
   end 
   
 end 
