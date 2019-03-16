@@ -5,5 +5,4 @@ require 'open-uri'
 
 Bundler.require 
 
-require 'open-uri'
 require_all './lib'
