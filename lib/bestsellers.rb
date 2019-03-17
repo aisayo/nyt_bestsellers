@@ -54,7 +54,7 @@ class NewYorkTimesBestsellers::Bestsellers
     description = doc.css("")
     category = doc.css("div.book-body").text
     
-    fiction = self.new(title, author, category)
+    nonfiction = self.new(title, author, category)
   end 
   
   def self.scrape_childrens
@@ -65,7 +65,7 @@ class NewYorkTimesBestsellers::Bestsellers
     description = doc.css("")
     category = doc.css("div.book-body).text
     
-    fiction = self.new(title, author, category)
+    childrens = self.new(title, author, category)
   end 
   
 end 
