@@ -58,7 +58,7 @@ class NewYorkTimesBestsellers::Bestsellers
   end 
   
   def self.scrape_childrens
-    html = open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-nonfiction/")
+    html = open("https://www.nytimes.com/books/best-sellers/childrens-middle-grade-hardcover/")
     doc = Nokogiri::HTML(html)
     title = doc.css("div.page-heading").text.gsub(/\t/, "")
     author = doc.css("")
