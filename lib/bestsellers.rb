@@ -42,9 +42,9 @@ class NewYorkTimesBestsellers::Bestsellers
     html = open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r")
     doc = Nokogiri::HTML(html)
     title = doc.css("").text.gsub(/\t/, "")
-    author = doc.css("")
+    author = doc.css("div.product-shelf-author contributors")
     description = doc.css("")
-    category = doc.css("<div class="html content-node.html-embed-container").text
+    category = doc.css("div.html content-node.html-embed-container").text
     
     fiction = self.new(title, author, category)
   end 
