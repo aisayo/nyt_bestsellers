@@ -3,11 +3,14 @@
 #return list for selected genre 
 #return info for book selected from list 
 
-class NewYorkTimesBestsellers::CLI 
+class NYT_bestsellers::CLI 
   
   def call 
     puts "Looking for a good book?"
-    start 
+    NYT_bestsellers::bestsellers.scrape_info
+    list_categories 
+    list_bestsellers
+    happy_reading
   end 
   
   def start
