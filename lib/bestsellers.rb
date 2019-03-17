@@ -41,7 +41,7 @@ class NewYorkTimesBestsellers::Bestsellers
     title = doc.css("div.page-heading").text.gsub(/\t/, "")
     author = doc.css("")
     description = doc.css("")
-    category = doc.css("view details-view").text
+    category = doc.css("div.book-body").text
     
     fiction = self.new(title, author, category)
   end 
@@ -52,12 +52,20 @@ class NewYorkTimesBestsellers::Bestsellers
     title = doc.css("div.page-heading").text.gsub(/\t/, "")
     author = doc.css("")
     description = doc.css("")
-    category = doc.css("view details-view").text
+    category = doc.css("div.book-body").text
     
     fiction = self.new(title, author, category)
   end 
   
   def self.scrape_childrens
+    html = open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-nonfiction/")
+    doc = Nokogiri::HTML(html)
+    title = doc.css("div.page-heading").text.gsub(/\t/, "")
+    author = doc.css("")
+    description = doc.css("")
+    category = doc.css("div.book-body).text
+    
+    fiction = self.new(title, author, category)
   end 
   
 end 
