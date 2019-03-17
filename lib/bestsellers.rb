@@ -22,8 +22,12 @@ class NewYorkTimesBestsellers::Bestsellers
     @@all << self 
   end 
   
-  def self.find_bestseller(i)
-    self.all[i.to_i - 1]
+  # def self.find_bestseller(i)
+  #   self.all[i.to_i - 1]
+  # end 
+  
+  def self.find(id)
+    self.all[id-1]
   end 
   
   def self.scrape_info
