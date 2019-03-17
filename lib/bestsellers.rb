@@ -11,7 +11,7 @@ class NewYorkTimesBestsellers::Bestsellers
     @author = author 
     @@category = category 
     @description = description
-    
+    @@all << all
   end 
   
   def self.all 
