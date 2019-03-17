@@ -14,14 +14,12 @@ class NYT_bestsellers::CLI
   end 
   
   def list_categories
-    puts ""
     puts "Which genre would you like to see?  Fiction, nonfiction, or children's?"
-    input = gets.strip.to_i
-    
-    print_bestsellers(input)
-    
-    puts ""
-    puts "Would you like to see another genre?  Enter Y or N"
+    NYT_bestsellers::bestsellers.all.each.with_index(1) do |bestseller, i|
+      puts "#{i}. #{bestseller.category}"
+      puts "Would you like to see another genre?  Enter Y or N"
+    end 
+  end 
     
     input = gets.strip.downcase
     if input == "y"
@@ -35,6 +33,9 @@ class NYT_bestsellers::CLI
       puts "I don't recognize your answer."
       start 
     end 
+  end 
+  
+  def list_bestsellers
   end 
   
 end 
