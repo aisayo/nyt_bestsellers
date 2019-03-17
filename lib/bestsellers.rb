@@ -39,34 +39,34 @@ class NewYorkTimesBestsellers::Bestsellers
   end 
   
   def self.scrape_fiction
-    html = open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-fiction/")
+    html = open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r")
     doc = Nokogiri::HTML(html)
-    title = doc.css("div.page-heading").text.gsub(/\t/, "")
+    title = doc.css("").text.gsub(/\t/, "")
     author = doc.css("")
     description = doc.css("")
-    category = doc.css("div.book-body").text
+    category = doc.css("").text
     
     fiction = self.new(title, author, category)
   end 
   
   def self.scrape_nonfiction
-    html = open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-nonfiction/")
+    html = open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q")
     doc = Nokogiri::HTML(html)
-    title = doc.css("div.page-heading").text.gsub(/\t/, "")
+    title = doc.css("").text.gsub(/\t/, "")
     author = doc.css("")
     description = doc.css("")
-    category = doc.css("div.book-body").text
+    category = doc.css("").text
     
     nonfiction = self.new(title, author, category)
   end 
   
   def self.scrape_childrens
-    html = open("https://www.nytimes.com/books/best-sellers/childrens-middle-grade-hardcover/")
+    html = open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-childrens-picture-books/_/N-1p3p")
     doc = Nokogiri::HTML(html)
-    title = doc.css("div.page-heading").text.gsub(/\t/, "")
+    title = doc.css("").text.gsub(/\t/, "")
     author = doc.css("")
     description = doc.css("")
-    category = doc.css("div.book-body).text
+    category = doc.css(").text
     
     childrens = self.new(title, author, category)
   end 
