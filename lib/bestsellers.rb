@@ -2,16 +2,15 @@ require 'pry'
 
 class NewYorkTimesBestsellers::Bestsellers 
   
-  attr_accessor :title, :author, :category, :description, :url
+  attr_accessor :title, :author, :category, :description
   
   @@all = []
   
-  def initialize(title=nil, author=nil, url=nil)
+  def initialize(title, author, category, description)
     @title = title 
     @author = author 
     @@category = category 
     @description = description
-    @url = url 
     
   end 
   
