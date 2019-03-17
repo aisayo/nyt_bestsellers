@@ -44,7 +44,7 @@ class NewYorkTimesBestsellers::Bestsellers
     category = doc.css("div.html content-node.html-embed-container").text
     title = doc.css("<div.product-shelf-title pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author contributors")
-    description = doc.css("")
+    description = doc.css("div.text--medium overview-content")
     
     fiction = self.new(category, title, author)
   end 
