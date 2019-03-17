@@ -10,10 +10,10 @@ class NYT_bestsellers::CLI
     NYT_bestsellers::bestsellers.scrape_info
     list_categories 
     list_bestsellers
-    happy_reading
+    goodbye
   end 
   
-  def start
+  def list_categories
     puts ""
     puts "Which genre would you like to see?  Fiction, nonfiction, or children's?"
     input = gets.strip.to_i
