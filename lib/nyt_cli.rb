@@ -28,7 +28,7 @@ class NYT_bestsellers::CLI
     if input == "category"
       list_categories 
     elsif input.to_i.between?(0, NYT_bestsellers::bestsellers.all.size)
-    selected_category = NYT_bestsellers::bestsellers.find_rbestsellers(input)
+    selected_category = NYT_bestsellers::bestsellers.find_bestsellers(input)
     puts "#{selected_category.title}"
     else
       puts "I do not recognize your answer. "
