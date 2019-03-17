@@ -9,7 +9,7 @@ class NewYorkTimesBestsellers::Bestsellers
   def initialize(title, author, category, description)
     @title = title 
     @author = author 
-    @@category = category 
+    @category = category 
     @description = description
     @@all << all
   end 
