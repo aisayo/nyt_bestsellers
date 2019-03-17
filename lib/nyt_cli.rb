@@ -10,7 +10,7 @@ class NYT_bestsellers::CLI
     NYT_bestsellers::bestsellers.scrape_info
     list_categories 
     list_bestsellers
-    goodbye
+    goodbye_message
   end 
   
   def list_categories
@@ -34,7 +34,7 @@ class NYT_bestsellers::CLI
       puts "I do not recognize your answer. "
   end 
   
-  def goodbye
+  def goodbye_message
     puts "Happy reading!"
   end
   
