@@ -46,7 +46,7 @@ class NewYorkTimesBestsellers::Bestsellers
     author = doc.css("div.product-shelf-author contributors").text.gsub(/\t/, "")
     description = doc.css("div.text--medium overview-content").text.gsub(/\t/, "")
     
-    fiction = self.new(category, title, author)
+    fiction = self.new(category, title, author, description)
   end 
   
   def self.scrape_nonfiction
@@ -57,7 +57,7 @@ class NewYorkTimesBestsellers::Bestsellers
     author = doc.css("div.product-shelf-author contributors").text.gsub(/\t/, "")
     description = doc.css("div.text--medium overview-content").text.gsub(/\t/, "")
     
-    nonfiction = self.new(category, title, author)
+    nonfiction = self.new(category, title, author, description)
   end 
   
   def self.scrape_childrens
@@ -68,7 +68,7 @@ class NewYorkTimesBestsellers::Bestsellers
     author = doc.css("div.product-shelf-author contributors").text.gsub(/\t/, "")
     description = doc.css("div.text--medium overview-content").text.gsub(/\t/, "")
     
-    childrens = self.new(category, title, author)
+    childrens = self.new(category, title, author, description)
   end 
   
 end 
