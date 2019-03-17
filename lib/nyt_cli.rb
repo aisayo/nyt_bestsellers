@@ -14,7 +14,7 @@ class NYT_bestsellers::CLI
   end 
   
   def list_categories
-    puts "Which genre would you like to see?  Fiction, nonfiction, or children's?"
+    puts "Which category would you like to see?  Fiction, nonfiction, or children's?"
     puts "Please select another category by typing 'category' or type 'exit' to leave"
     NYT_bestsellers::bestsellers.all.each.with_index(1) do |bestseller, i|
       puts "#{i}. #{bestseller.category}"
