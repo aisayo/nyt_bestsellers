@@ -7,7 +7,7 @@ class NYT_bestsellers::CLI
   
   def call 
     puts "Looking for a good book?"
-    NYT_bestsellers::bestsellers.scrape_info
+    NytBestsellers::bestsellers.scrape_info
     list_categories 
     list_bestsellers
     goodbye_message
@@ -16,7 +16,7 @@ class NYT_bestsellers::CLI
   def list_categories
     puts "Which category would you like to see?  Fiction, nonfiction, or children's?"
     puts "Please select another category by typing 'category' or type 'exit' to leave"
-    NYT_bestsellers::bestsellers.all.each.with_index(1) do |bestseller, i|
+    NytBestsellers::bestsellers.all.each.with_index(1) do |bestseller, i|
       puts "#{i}. #{bestseller.category}"
     end 
   end 
@@ -27,8 +27,8 @@ class NYT_bestsellers::CLI
     input = gets.strip.downcase 
     if input == "category"
       list_categories 
-    elsif input.to_i.between?(0, NYT_bestsellers::bestsellers.all.size)
-    selected_category = NYT_bestsellers::bestsellers.find_bestsellers(input)
+    elsif input.to_i.between?(0, NytBestsellers::bestsellers.all.size)
+    selected_category = NytBestsellers::bestsellers.find_bestsellers(input)
     puts "#{selected_category.title}"
     else
       puts "I do not recognize your answer. "
