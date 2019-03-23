@@ -1,8 +1,10 @@
-require 'bundler'
-require 'pry'
-require 'nokogiri'
-require 'open-uri'
+require_relative "./nyt_bestsellers/version"
+require_relative "./nyt_cli"
 
-require_relative '../lib/bestsellers'
-require_relative '../lib/nyt_cli'
-require_relative '../lib/NytBestsellers/version'
+
+# require 'bundler'
+# require 'pry'
+# require 'nokogiri'
+# require 'open-uri'
+
+# require_relative '../lib/bestsellers'

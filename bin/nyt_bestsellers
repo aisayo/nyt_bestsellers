@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby 
 
-NYT_Bestsellers::CLI.new.call
+require './lib/nyt_bestsellers'
+
+NYT_bestsellers::CLI.new.call

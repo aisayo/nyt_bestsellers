@@ -1,3 +1,4 @@
+#controller
 class NYT_bestsellers::CLI 
   
   def call 
