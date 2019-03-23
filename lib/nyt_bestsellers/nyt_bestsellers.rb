@@ -1,7 +1,7 @@
 module WorldsBestRestaurants
 end
 
-require_relative '../config/environment'
+require_relative '..lib/config/environment'
 
 
 # require_relative "./nyt_bestsellers/version"
