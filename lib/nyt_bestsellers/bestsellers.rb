@@ -1,6 +1,4 @@
-require 'pry'
-
-class NytBestsellers::Bestsellers 
+class NYT_Bestsellers::Bestsellers 
   
   attr_accessor :title, :author, :category, :description
   
