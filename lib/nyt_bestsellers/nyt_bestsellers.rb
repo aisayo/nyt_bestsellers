@@ -1,5 +1,11 @@
-require_relative "./nyt_bestsellers/version"
-require_relative "./nyt_cli"
+module WorldsBestRestaurants
+end
+
+require_relative '../config/environment'
+
+
+# require_relative "./nyt_bestsellers/version"
+# require_relative './nyt_cli'
 
 
 # require 'bundler'
