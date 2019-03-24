@@ -37,8 +37,8 @@ class NYT_Bestsellers::Bestsellers
   end 
   
   def self.scrape_fiction
-    doc = Nokogiri::HTML(open('https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r'))
-    category = doc.css("div.html content-node.html-embed-container").text.gsub(/\t/, "")
+    doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
+    category = doc.css("div.html content-node.html-embed-container").text
     title = doc.css("div.product-shelf-title pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author contributors").text.gsub(/\t/, "")
     description = doc.css("div.text--medium overview-content").text.gsub(/\t/, "")
