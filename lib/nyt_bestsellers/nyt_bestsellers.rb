@@ -1,5 +1,4 @@
-module WorldsBestRestaurants
-end
+module NYT_Bestsellers 
 
 require_relative '..lib/config/environment'
 
