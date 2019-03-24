@@ -3,7 +3,7 @@ class NYT_Bestsellers::CLI
   
   def call 
     puts "Looking for a good book?"
-    NytBestsellers::bestsellers.scrape_info
+    NYT_Bestsellers::Bestsellers.scrape_info
     list_categories 
     list_bestsellers
     goodbye_message

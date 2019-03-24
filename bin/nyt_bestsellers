@@ -2,4 +2,4 @@
 
 require './lib/nyt_bestsellers'
 
-NYT_bestsellers::CLI.new.call
+NYT_Bestsellers::CLI.new.call
