@@ -28,11 +28,11 @@ class NYT_bestsellers::CLI
     puts "#{selected_category.title}"
     else
       puts "I do not recognize your answer. "
+      end 
     end 
   end 
   
   def goodbye_message
     puts "Happy reading!"
   end
-  
 end 
