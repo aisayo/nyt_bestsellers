@@ -1,5 +1,5 @@
 #controller
-class NYT_bestsellers::CLI 
+class NYT_Bestsellers::CLI 
   
   def call 
     puts "Looking for a good book?"
