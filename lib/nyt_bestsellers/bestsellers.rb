@@ -1,3 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
 class NYT_Bestsellers::Bestsellers 
   
   attr_accessor :title, :author, :category, :description
@@ -33,8 +37,7 @@ class NYT_Bestsellers::Bestsellers
   end 
   
   def self.scrape_fiction
-    html = open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r")
-    doc = Nokogiri::HTML(html)
+    doc = Nokogiri::HTML(open('https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r'))
     category = doc.css("div.html content-node.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author contributors").text.gsub(/\t/, "")
