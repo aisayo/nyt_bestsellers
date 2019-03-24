@@ -1,7 +1,7 @@
 module NYT_Bestsellers 
 end
 
-require_relative '..lib/config/environment'
+require_relative '../config/environment'
 
 
 # require_relative "./nyt_bestsellers/version"
