@@ -16,12 +16,12 @@ class NYT_Bestsellers::Bestsellers
     @@all
   end 
   
-  def save
-    @@all << self 
+  def self.find_bestseller(i)
+    self.all[i.to_i - 1]
   end 
   
-  def self.find(id)
-    self.all[id-1]
+  def save
+    @@all << self 
   end 
   
   def self.scrape_info
