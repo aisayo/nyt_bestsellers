@@ -1,4 +1,5 @@
 module NYT_Bestsellers 
+end
 
 require_relative '..lib/config/environment'
 
