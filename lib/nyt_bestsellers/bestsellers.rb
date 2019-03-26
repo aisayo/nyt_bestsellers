@@ -48,7 +48,6 @@ class NYT_Bestsellers::Bestsellers
   
   def self.scrape_nonfiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q"))
-    doc = Nokogiri::HTML(html)
     category = doc.css("div.html content-node.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author contributors").text.gsub(/\t/, "")
@@ -59,7 +58,6 @@ class NYT_Bestsellers::Bestsellers
   
   def self.scrape_childrens
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-childrens-picture-books/_/N-1p3p"))
-    doc = Nokogiri::HTML(html)
     category = doc.css("div.html content-node.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author contributors").text.gsub(/\t/, "")
