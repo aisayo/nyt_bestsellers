@@ -11,7 +11,7 @@ class NYT_Bestsellers::CLI
   
   def list_categories
     puts "Which category would you like to see?  Fiction, nonfiction, or children's?"
-    puts "Please select another category by typing 'fiction, nonfiction, or childrens' or type 'exit' to leave"
+    puts "Please select another category by typing 'fiction', 'nonfiction', or 'childrens' or type 'exit' to leave"
     NYT_Bestsellers::Bestsellers.all.each.with_index(1) do |bestseller, i|
       puts "#{i}. #{bestseller.category}"
     end 
@@ -22,7 +22,7 @@ class NYT_Bestsellers::CLI
     while input != "exit"
     input = gets.strip.downcase 
     if input == "category"
-      list_categories 
+      list_categories
     elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
     selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
     puts "#{selected_category.title}"
