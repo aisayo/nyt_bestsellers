@@ -30,7 +30,7 @@ class NYT_Bestsellers::CLI
     selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
     puts "#{selected_category.title}"
     else
-      puts "I do not recognize your answer. "
+      puts "I'm sorry, I do not recognize your answer. "
       end 
     end
   end 
