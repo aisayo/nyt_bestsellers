@@ -20,14 +20,14 @@ class NYT_Bestsellers::CLI
     end 
   end 
   
-  def list_fiction
+  def list_bestsellers
     input = nil 
     while input != "exit"
     input = gets.strip.downcase 
     if input == "fiction"
       list_fiction
     elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
+    selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
     puts "#{selected_category.title}"
     else
       puts "I'm sorry, I do not recognize your response."
@@ -35,35 +35,50 @@ class NYT_Bestsellers::CLI
     end
   end 
   
-   def list_nonfiction
-    input = nil 
-    while input != "exit"
-    input = gets.strip.downcase 
-    if input == "nonfiction"
-      list_nonfiction
-    elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
-    puts "#{selected_category.title}"
-    else
-      puts "I'm sorry, I do not recognize your response."
-      end 
-    end
-  end 
+  # def list_fiction
+  #   input = nil 
+  #   while input != "exit"
+  #   input = gets.strip.downcase 
+  #   if input == "fiction"
+  #     list_fiction
+  #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+  #   selected_category = NYT_Bestsellers::Bestsellers.find_fiction(input)
+  #   puts "#{selected_category.title}"
+  #   else
+  #     puts "I'm sorry, I do not recognize your response."
+  #     end 
+  #   end
+  # end 
   
-   def list_childrens
-    input = nil 
-    while input != "exit"
-    input = gets.strip.downcase 
-    if input == "childrens"
-      list_childrens
-    elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
-    puts "#{selected_category.title}"
-    else
-      puts "I'm sorry, I do not recognize your response."
-      end 
-    end
-  end 
+  # def list_nonfiction
+  #   input = nil 
+  #   while input != "exit"
+  #   input = gets.strip.downcase 
+  #   if input == "nonfiction"
+  #     list_nonfiction
+  #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+  #   selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
+  #   puts "#{selected_category.title}"
+  #   else
+  #     puts "I'm sorry, I do not recognize your response."
+  #     end 
+  #   end
+  # end 
+  
+  # def list_childrens
+  #   input = nil 
+  #   while input != "exit"
+  #   input = gets.strip.downcase 
+  #   if input == "childrens"
+  #     list_childrens
+  #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+  #   selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
+  #   puts "#{selected_category.title}"
+  #   else
+  #     puts "I'm sorry, I do not recognize your response."
+  #     end 
+  #   end
+  # end 
   
   # def list_bestsellers
   #   input = nil 

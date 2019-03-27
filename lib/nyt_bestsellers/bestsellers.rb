@@ -20,7 +20,19 @@ class NYT_Bestsellers::Bestsellers
     @@all
   end 
   
-  def self.find_bestseller(i)
+  # def self.find_bestseller(i)
+  #   self.all[i.to_i - 1]
+  # end 
+  
+  def self.find_fiction(i)
+    self.all[i.to_i - 1]
+  end 
+  
+  def self.find_nonfiction
+    self.all[i.to_i - 1]
+  end 
+  
+  def self.find_childrens
     self.all[i.to_i - 1]
   end 
   
@@ -28,20 +40,30 @@ class NYT_Bestsellers::Bestsellers
     @@all << self 
   end 
   
-  def self.scrape_info
-    bestsellers = []
+  # def self.scrape_info
+  #   bestsellers = []
     
-    bestsellers << self.scrape_fiction
-    bestsellers << self.scrape_nonfiction
-    bestsellers << self.scrape_childrens
+  #   bestsellers << self.scrape_fiction
+  #   bestsellers << self.scrape_nonfiction
+  #   bestsellers << self.scrape_childrens
+  # end 
+  
+  def self.scrape_info
+    fiction = []
+    nonfiction = []
+    childrens = []
+    
+    fiction << self.scrape_fiction
+    nonfiction << self.scrape_nonfiction
+    childrens << self.scrape_childrens
   end 
   
   def self.scrape_fiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
-    category = doc.css("div.html.content-node div.html-embed-container").text
-    title = doc.css("div.product-shelf-title.pr-m h3.product-info-title").text
-    author = doc.css("div.product-shelf-author.contributors").text
-    description = doc.css("div.text--medium.overview-content").text
+    category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
+    title = doc.css("div.product-shelf-title.pr-m h3.product-info-title").text.gsub(/\t/, "")
+    author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
+    description = doc.css("div.text--medium.overview-content").text.gsub(/\t/, "")
     
     # fiction = self.new(category, title, author, description)
   end 
