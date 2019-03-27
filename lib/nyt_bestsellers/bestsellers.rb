@@ -59,9 +59,9 @@ class NYT_Bestsellers::Bestsellers
   def self.scrape_childrens
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-childrens-picture-books/_/N-1p3p"))
     category = doc.css("div.html.content-node div.html-embed-container").first.text
-    title = doc.css("div.product-shelf-title.pr-m").text.gsub(/\t/, "")
-    author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
-    description = doc.css("div.text--medium.overview-content").text.gsub(/\t/, "")
+    title = doc.css("div.product-shelf-title.pr-m").text
+    author = doc.css("div.product-shelf-author.contributors").text
+    description = doc.css("div.text--medium.overview-content").text
     
     # childrens = self.new(category, title, author, description)
   end 
