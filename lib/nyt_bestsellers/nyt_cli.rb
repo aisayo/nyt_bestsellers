@@ -6,9 +6,9 @@ class NYT_Bestsellers::CLI
     NYT_Bestsellers::Bestsellers.scrape_info
     list_categories 
     # list_bestsellers
-    list_fiction
-    list_nonfiction
-    list_childrens
+    @list_fiction
+    @list_nonfiction
+    @list_childrens
     goodbye_message
   end 
   
@@ -30,7 +30,7 @@ class NYT_Bestsellers::CLI
         list_nonfiction
       elsif input == "childrens"
         list_childrens
-    elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+      elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
     selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
     puts "#{selected_category.title}"
     else

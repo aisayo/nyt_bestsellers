@@ -70,20 +70,20 @@ class NYT_Bestsellers::Bestsellers
   
   def self.scrape_nonfiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q"))
-    category = doc.css("div.html.content-node div.html-embed-container").text
-    title = doc.css("div.product-shelf-title.pr-m h3.product-info-title a").text
-    author = doc.css("div.product-shelf-author.contributors").text
-    description = doc.css("div.text--medium.overview-content").text
+    category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
+    title = doc.css("div.product-shelf-title.pr-m h3.product-info-title a").text.gsub(/\t/, "")
+    author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
+    description = doc.css("div.text--medium.overview-content").text.gsub(/\t/, "")
     
     nonfiction = self.new(category, title, author, description)
   end 
   
   def self.scrape_childrens
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-childrens-picture-books/_/N-1p3p"))
-    category = doc.css("div.html.content-node div.html-embed-container").first.text
-    title = doc.css("div.product-shelf-title.pr-m").text
-    author = doc.css("div.product-shelf-author.contributors").text
-    description = doc.css("div.text--medium.overview-content").text
+    category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
+    title = doc.css("div.product-shelf-title.pr-m").text.gsub(/\t/, "")
+    author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
+    description = doc.css("div.text--medium.overview-content").text.gsub(/\t/, "")
     
     childrens = self.new(category, title, author, description)
   end 
