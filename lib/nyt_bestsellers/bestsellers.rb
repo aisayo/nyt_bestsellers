@@ -4,15 +4,14 @@ require 'pry'
 
 class NYT_Bestsellers::Bestsellers 
   
-  attr_accessor :title, :author, :category, :description
+  attr_accessor :title, :author, :category
   
   @@all = []
   
-  def initialize(title, author, category, description)
+  def initialize(title, author, category)
     @title = title 
     @author = author 
     @category = category 
-    @description = description
     @@all << self
   end 
   
@@ -40,32 +39,32 @@ class NYT_Bestsellers::Bestsellers
     @@all << self 
   end 
   
-  # def self.scrape_info
-  #   bestsellers = []
-    
-  #   bestsellers << self.scrape_fiction
-  #   bestsellers << self.scrape_nonfiction
-  #   bestsellers << self.scrape_childrens
-  # end 
-  
   def self.scrape_info
-    fiction = []
-    nonfiction = []
-    childrens = []
+    bestsellers = []
     
-    fiction << self.scrape_fiction
-    nonfiction << self.scrape_nonfiction
-    childrens << self.scrape_childrens
+    bestsellers << self.scrape_fiction
+    bestsellers << self.scrape_nonfiction
+    bestsellers << self.scrape_childrens
   end 
+  
+  # def self.scrape_info
+  #   fiction = []
+  #   nonfiction = []
+  #   childrens = []
+    
+  #   fiction << self.scrape_fiction
+  #   nonfiction << self.scrape_nonfiction
+  #   childrens << self.scrape_childrens
+  # end 
   
   def self.scrape_fiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
     category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title.pr-m h3.product-info-title").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
-    description = doc.css("div.text--medium.overview-content").text.gsub(/\t/, "")
     
-    fiction = self.new(category, title, author, description)
+    fiction = self.new(category, title, author)
+    
   end 
   
   def self.scrape_nonfiction
@@ -73,9 +72,8 @@ class NYT_Bestsellers::Bestsellers
     category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title.pr-m h3.product-info-title a").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
-    description = doc.css("div.text--medium.overview-content").text.gsub(/\t/, "")
     
-    nonfiction = self.new(category, title, author, description)
+    nonfiction = self.new(category, title, author)
   end 
   
   def self.scrape_childrens
@@ -83,9 +81,8 @@ class NYT_Bestsellers::Bestsellers
     category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title.pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
-    description = doc.css("div.text--medium.overview-content").text.gsub(/\t/, "")
     
-    childrens = self.new(category, title, author, description)
+    childrens = self.new(category, title, author)
   end 
   
 end 
