@@ -2,14 +2,25 @@
 class NYT_Bestsellers::CLI 
   
   def call 
-    puts "Looking for a good book?"
+    puts "Looking for a good book? Enter 'Y' for yes or 'N' for no"
     NYT_Bestsellers::Bestsellers.scrape_info
-    list_categories 
+    start
     # list_bestsellers
-    @list_fiction
-    @list_nonfiction
-    @list_childrens
+    # list_fiction
+    # list_nonfiction
+    # list_childrens
     goodbye_message
+  end 
+  
+  def start 
+    input = nil
+    while input != "exit"
+    input = gets.strip.downcase 
+    if input == 'Y'
+      list_categories 
+    else input = 'N'
+    end 
+    end
   end 
   
   def list_categories
