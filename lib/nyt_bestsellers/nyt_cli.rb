@@ -2,7 +2,7 @@
 class NYT_Bestsellers::CLI 
   
   def call 
-    puts "Looking for a good book? Enter 'Y' for yes or 'N' for no"
+    puts "Looking for a good book? Enter 'y' for yes or 'n' for no"
     NYT_Bestsellers::Bestsellers.scrape_info
     start
     # list_bestsellers
@@ -16,9 +16,9 @@ class NYT_Bestsellers::CLI
     input = nil
     while input != "exit"
     input = gets.strip.downcase 
-    if input == 'Y'
+    if input == 'y'
       list_categories 
-    else input = 'N'
+    else input = 'n'
     end 
     end
   end 
@@ -31,24 +31,24 @@ class NYT_Bestsellers::CLI
     end 
   end 
   
-  def list_bestsellers
-    input = nil 
-    while input != "exit"
-    input = gets.strip.downcase 
-    if input == "fiction"
-      list_fiction
-      elsif input == "nonfiction"
-        list_nonfiction
-      elsif input == "childrens"
-        list_childrens
-      elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
-    puts "#{selected_category.title}"
-    else
-      puts "I'm sorry, I do not recognize your response."
-      end 
-    end
-  end 
+  # def list_bestsellers
+  #   input = nil 
+  #   while input != "exit"
+  #   input = gets.strip.downcase 
+  #   if input == "fiction"
+  #     list_fiction
+  #     elsif input == "nonfiction"
+  #       list_nonfiction
+  #     elsif input == "childrens"
+  #       list_childrens
+  #     elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+  #   selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
+  #   puts "#{selected_category.title}"
+  #   else
+  #     puts "I'm sorry, I do not recognize your response."
+  #     end 
+  #   end
+  # end 
   
   # def list_fiction
   #   input = nil 
