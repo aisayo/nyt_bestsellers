@@ -5,7 +5,7 @@ class NYT_Bestsellers::CLI
     NYT_Bestsellers::Bestsellers.scrape_info
     start
     # list_bestsellers
-    # list_fiction
+    list_fiction
     # list_nonfiction
     # list_childrens
     goodbye_message
@@ -45,9 +45,14 @@ class NYT_Bestsellers::CLI
       # puts "#{i}. #{bestseller.category}"
     end 
     
-    def list_fiction
-      NYT_Bestsellers::Bestsellers.scrape_info
-    end 
+    
+  def list_fiction
+    puts "#{list_fiction.title} - #{list_fiction.author}"
+    puts "title: #{scrape_fiction.title}"
+    puts "author: #{scrape_fiction.author}"
+    puts "Website: #{scrape_fiction.website_url}"
+  end
+    
  
   
   # def list_bestsellers
