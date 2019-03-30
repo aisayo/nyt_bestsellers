@@ -19,21 +19,18 @@ class NYT_Bestsellers::Bestsellers
     @@all
   end 
   
-  # def self.find_bestseller(i)
+  
+  def self.bestsellers(i)
+    self.all[i.to_i - 1]
+  end 
+  
+  # def self.find_nonfiction
   #   self.all[i.to_i - 1]
   # end 
   
-  def self.find_fiction(i)
-    self.all[i.to_i - 1]
-  end 
-  
-  def self.find_nonfiction
-    self.all[i.to_i - 1]
-  end 
-  
-  def self.find_childrens
-    self.all[i.to_i - 1]
-  end 
+  # def self.find_childrens
+  #   self.all[i.to_i - 1]
+  # end 
   
   def save
     @@all << self 
@@ -59,12 +56,11 @@ class NYT_Bestsellers::Bestsellers
   
   def self.scrape_fiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
-    category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
-    title = doc.css("div.product-shelf-title.pr-m h3.product-info-title").text.gsub(/\t/, "")
+    category = doc.css("div.row.topX-row").text.gsub(/\t/, "")
+    title = doc.css("div.product-shelf-title.pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
     
     fiction = self.new(category, title, author)
-    
   end 
   
   def self.scrape_nonfiction
