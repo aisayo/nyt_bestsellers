@@ -5,7 +5,7 @@ class NYT_Bestsellers::CLI
     NYT_Bestsellers::Bestsellers.scrape_info
     start
     # list_bestsellers
-    list_fiction
+    # list_fiction
     # list_nonfiction
     # list_childrens
     goodbye_message
@@ -44,8 +44,7 @@ class NYT_Bestsellers::CLI
     # NYT_Bestsellers::Bestsellers.all.each.with_index(1) do |bestseller, i|
       # puts "#{i}. #{bestseller.category}"
     end 
-    
-    
+
   def list_fiction
     puts "#{list_fiction.title} - #{list_fiction.author}"
     puts "title: #{scrape_fiction.title}"

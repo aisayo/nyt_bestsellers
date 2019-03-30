@@ -44,16 +44,6 @@ class NYT_Bestsellers::Bestsellers
     bestsellers << self.scrape_childrens
   end 
   
-  # def self.scrape_info
-  #   fiction = []
-  #   nonfiction = []
-  #   childrens = []
-    
-  #   fiction << self.scrape_fiction
-  #   nonfiction << self.scrape_nonfiction
-  #   childrens << self.scrape_childrens
-  # end 
-  
   def self.scrape_fiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
     category = doc.css("div.row.topX-row").text.gsub(/\t/, "")
