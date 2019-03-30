@@ -23,7 +23,7 @@ class NYT_Bestsellers::CLI
   end 
   
   def list_categories
-    puts "Which category would you like to see?  Fiction, nonfiction, or children's?  Type exit at anytime to leave the program."
+    puts "Which category would you like to see?  Fiction, nonfiction, or childrens?  Type exit at anytime to leave the program."
     input = nil 
     while input != "exit"
     input = gets.strip.downcase
@@ -31,11 +31,11 @@ class NYT_Bestsellers::CLI
       list_fiction
     elsif input == "nonfiction"
         list_nonfiction
-      elsif input == "childrens"
+    elsif input == "childrens"
         list_childrens
-      elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
-    puts "#{selected_category.title}"
+    #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+    # selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
+    # puts "#{selected_category.title}"
     else
       puts "I'm sorry, I do not recognize your response."
       end 
