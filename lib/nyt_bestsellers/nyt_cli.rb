@@ -33,9 +33,9 @@ class NYT_Bestsellers::CLI
         list_nonfiction
     elsif input == "childrens"
         list_childrens
-    #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    # selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
-    # puts "#{selected_category.title}"
+    elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+      selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
+    puts "#{selected_category.title}"
     else
       puts "I'm sorry, I do not recognize your response."
       end 
@@ -46,10 +46,9 @@ class NYT_Bestsellers::CLI
     end 
 
   def list_fiction
-    puts "#{list_fiction.title} - #{list_fiction.author}"
+    # puts "#{title} - #{author}"
     puts "title: #{scrape_fiction.title}"
     puts "author: #{scrape_fiction.author}"
-    puts "Website: #{scrape_fiction.website_url}"
   end
     
  
@@ -71,52 +70,6 @@ class NYT_Bestsellers::CLI
   #     puts "I'm sorry, I do not recognize your response."
   #     end 
   #   end
-  # end 
-  
-  
-  # def list_nonfiction
-  #   input = nil 
-  #   while input != "exit"
-  #   input = gets.strip.downcase 
-  #   if input == "nonfiction"
-  #     list_nonfiction
-  #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-  #   selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
-  #   puts "#{selected_category.title}"
-  #   else
-  #     puts "I'm sorry, I do not recognize your response."
-  #     end 
-  #   end
-  # end 
-  
-  # def list_childrens
-  #   input = nil 
-  #   while input != "exit"
-  #   input = gets.strip.downcase 
-  #   if input == "childrens"
-  #     list_childrens
-  #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-  #   selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
-  #   puts "#{selected_category.title}"
-  #   else
-  #     puts "I'm sorry, I do not recognize your response."
-  #     end 
-  #   end
-  # end 
-  
-  # def list_bestsellers
-  #   input = nil 
-  #   while input != "exit"
-  #   input = gets.strip.downcase 
-  #   if input == "category"
-  #     list_categories
-  #   elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-  #   selected_category = NYT_Bestsellers::Bestsellers.find_bestseller(input)
-  #   puts "#{selected_category.title}"
-  #   else
-  #     puts "I do not recognize your answer. "
-  #     end 
-  #   end 
   # end 
   
   def goodbye_message
