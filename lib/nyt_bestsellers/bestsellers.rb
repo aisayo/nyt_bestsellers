@@ -8,10 +8,10 @@ class NYT_Bestsellers::Bestsellers
   
   @@all = []
   
-  def initialize(title, author, category)
+  def initialize(category, title, author)
+    @category = category
     @title = title 
     @author = author 
-    @category = category 
     @@all << self
   end 
   
@@ -24,13 +24,17 @@ class NYT_Bestsellers::Bestsellers
     self.all[i.to_i - 1]
   end 
   
-  # def self.find_nonfiction
-  #   self.all[i.to_i - 1]
-  # end 
+  def self.scrape_fiction
+    self.all[i.to_i - 1]
+  end 
   
-  # def self.find_childrens
-  #   self.all[i.to_i - 1]
-  # end 
+  def self.scrape_nonfiction
+    self.all[i.to_i - 1]
+  end 
+  
+  def self.scrape_childrens
+    self.all[i.to_i - 1]
+  end 
   
   def save
     @@all << self 

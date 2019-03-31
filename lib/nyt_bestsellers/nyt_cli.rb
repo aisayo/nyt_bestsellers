@@ -47,8 +47,8 @@ class NYT_Bestsellers::CLI
 
   def list_fiction
     # puts "#{title} - #{author}"
-    puts "title: #{scrape_fiction.title}"
-    puts "author: #{scrape_fiction.author}"
+    puts "fiction: #{@scrape_fiction}"
+    # puts "author: #{@scrape_fiction.author}"
   end
     
  
