@@ -27,23 +27,23 @@ class NYT_Bestsellers::CLI
     input = nil 
     while input != "exit"
     input = gets.strip.downcase
-    if input == "fiction"
-      list_fiction
-    elsif input == "nonfiction"
-        list_nonfiction
-    elsif input == "childrens"
-        list_childrens
-    elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-      selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
-    puts "#{selected_category.title}"
-    else
-      puts "I'm sorry, I do not recognize your response."
-      end 
+    # if input == "fiction"
+    #   list_fiction
+    # elsif input == "nonfiction"
+    #     list_nonfiction
+    # elsif input == "childrens"
+    #     list_childrens
+    # elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
+    #   selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
+    # puts "#{selected_category.title}"
+    # else
+    #   puts "I'm sorry, I do not recognize your response."
+    #   end 
+   NYT_Bestsellers::Bestsellers.all do |bestseller, i|
+      puts "#{i}. #{bestseller.category}"
+    end
     end
   end 
-    NYT_Bestsellers::Bestsellers.all.each.with_index(1) do |bestseller, i|
-      puts "#{i}. #{bestseller.category}"
-    end 
 
   def list_fiction
     # puts "#{title} - #{author}"

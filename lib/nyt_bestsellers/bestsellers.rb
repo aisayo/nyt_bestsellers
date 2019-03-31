@@ -4,12 +4,12 @@ require 'pry'
 
 class NYT_Bestsellers::Bestsellers 
   
-  attr_accessor :title, :author
+  attr_accessor :title, :author, :category
   
   @@all = []
   
   def initialize(title, author)
-    # @category = category
+    @category = category
     @title = title 
     @author = author 
     @@all << self
