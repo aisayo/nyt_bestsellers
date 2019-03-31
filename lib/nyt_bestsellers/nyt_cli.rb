@@ -41,8 +41,8 @@ class NYT_Bestsellers::CLI
       end 
     end
   end 
-    # NYT_Bestsellers::Bestsellers.all.each.with_index(1) do |bestseller, i|
-      # puts "#{i}. #{bestseller.category}"
+    NYT_Bestsellers::Bestsellers.all.each.with_index(1) do |bestseller, i|
+      puts "#{i}. #{bestseller.category}"
     end 
 
   def list_fiction
@@ -75,4 +75,5 @@ class NYT_Bestsellers::CLI
   def goodbye_message
     puts "Happy reading!"
   end
+end 
 
