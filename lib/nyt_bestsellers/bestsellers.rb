@@ -4,12 +4,12 @@ require 'pry'
 
 class NYT_Bestsellers::Bestsellers 
   
-  attr_accessor :title, :author, :category
+  attr_accessor :title, :author
   
   @@all = []
   
-  def initialize(category, title, author)
-    @category = category
+  def initialize(title, author)
+    # @category = category
     @title = title 
     @author = author 
     @@all << self
@@ -50,29 +50,29 @@ class NYT_Bestsellers::Bestsellers
   
   def self.scrape_fiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-fiction/_/N-1p3r"))
-    category = doc.css("div.row.topX-row").text.gsub(/\t/, "")
+    # category = doc.css("div.row.topX-row").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title.pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
     
-    fiction = self.new(category, title, author)
+    fiction = self.new(title, author)
   end 
   
   def self.scrape_nonfiction
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q"))
-    category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
+    # category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title.pr-m h3.product-info-title a").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
     
-    nonfiction = self.new(category, title, author)
+    nonfiction = self.new(title, author)
   end 
   
   def self.scrape_childrens
     doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-childrens-picture-books/_/N-1p3p"))
-    category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
+    # category = doc.css("div.html.content-node div.html-embed-container").text.gsub(/\t/, "")
     title = doc.css("div.product-shelf-title.pr-m").text.gsub(/\t/, "")
     author = doc.css("div.product-shelf-author.contributors").text.gsub(/\t/, "")
     
-    childrens = self.new(category, title, author)
+    childrens = self.new(title, author)
   end 
   
 end 
