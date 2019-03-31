@@ -4,10 +4,11 @@ class NYT_Bestsellers::CLI
     puts "Looking for a good book? Enter 'y' for yes or 'n' for no"
     NYT_Bestsellers::Bestsellers.scrape_info
     start
+    list_categories
     list_bestsellers
-    list_fiction
-    list_nonfiction
-    list_childrens
+    # list_fiction
+    # list_nonfiction
+    # list_childrens
     goodbye_message
   end 
   
@@ -28,7 +29,8 @@ class NYT_Bestsellers::CLI
     while input != "exit"
     input = gets.strip.downcase
    NYT_Bestsellers::Bestsellers.all do |bestseller|
-      puts "#{bestseller.category}"
+      puts "#{bestseller.title}"
+      puts "#{bestseller.author}"
     end
     end
   end 
