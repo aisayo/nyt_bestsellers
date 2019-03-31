@@ -4,10 +4,10 @@ class NYT_Bestsellers::CLI
     puts "Looking for a good book? Enter 'y' for yes or 'n' for no"
     NYT_Bestsellers::Bestsellers.scrape_info
     start
-    # list_bestsellers
-    # list_fiction
-    # list_nonfiction
-    # list_childrens
+    list_bestsellers
+    list_fiction
+    list_nonfiction
+    list_childrens
     goodbye_message
   end 
   
@@ -27,20 +27,8 @@ class NYT_Bestsellers::CLI
     input = nil 
     while input != "exit"
     input = gets.strip.downcase
-    # if input == "fiction"
-    #   list_fiction
-    # elsif input == "nonfiction"
-    #     list_nonfiction
-    # elsif input == "childrens"
-    #     list_childrens
-    # elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    #   selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
-    # puts "#{selected_category.title}"
-    # else
-    #   puts "I'm sorry, I do not recognize your response."
-    #   end 
-   NYT_Bestsellers::Bestsellers.all do |bestseller, i|
-      puts "#{i}. #{bestseller.category}"
+   NYT_Bestsellers::Bestsellers.all do |bestseller|
+      puts "#{bestseller.category}"
     end
     end
   end 
@@ -55,21 +43,35 @@ class NYT_Bestsellers::CLI
         list_nonfiction
       elsif input == "childrens"
         list_childrens
-      elsif input.to_i.between?(0, NYT_Bestsellers::Bestsellers.all.size)
-    selected_category = NYT_Bestsellers::Bestsellers.find_category(input)
-    puts "#{selected_category.title}"
-    else
+      else
       puts "I'm sorry, I do not recognize your response."
       end 
     end
   end 
   
   def list_fiction
+    scrape_fiction
+    puts "title: #{@scrape_fiction.title}"
+    puts "author: #{@scrape_fiction.author}"
+  end 
+   
+  def list_fiction
     # puts "#{title} - #{author}"
     puts "fiction: #{@scrape_fiction}"
+    puts "author: #{@scrape_fiction.author}"
+  end
+  
+  def list_nonfiction
+    # puts "#{title} - #{author}"
+    puts "nonfiction: #{@scrape_nonfiction}"
     # puts "author: #{@scrape_fiction.author}"
   end
   
+  def list_childrens
+    # puts "#{title} - #{author}"
+    puts "childrens: #{@scrape_childrens}"
+    # puts "author: #{@scrape_fiction.author}"
+  end
   
   def goodbye_message
     puts "Happy reading!"
