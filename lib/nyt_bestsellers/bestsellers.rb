@@ -24,17 +24,17 @@ class NYT_Bestsellers::Bestsellers
     self.all[i.to_i - 1]
   end 
   
-  def self.scrape_fiction
-    self.all[i.to_i - 1]
-  end 
+  # def self.scrape_fiction
+  #   self.all[i.to_i - 1]
+  # end 
   
-  def self.scrape_nonfiction
-    self.all[i.to_i - 1]
-  end 
+  # def self.scrape_nonfiction
+  #   self.all[i.to_i - 1]
+  # end 
   
-  def self.scrape_childrens
-    self.all[i.to_i - 1]
-  end 
+  # def self.scrape_childrens
+  #   self.all[i.to_i - 1]
+  # end 
   
   def save
     @@all << self 
